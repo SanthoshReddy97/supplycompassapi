@@ -24,6 +24,8 @@ Then install the dependencies:
 Note the `(env)` in front of the prompt. This indicates that this terminal
 session operates in a virtual environment set up by `virtualenv2`.
 
+Add .env file with DB credentials and export the keys.
+
 Once `pip` has finished downloading the dependencies:
 ```sh
 (env)$ cd project
