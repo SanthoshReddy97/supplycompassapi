@@ -1,0 +1,31 @@
+Solution 1:
+
+Assuming changing only the position values in the column instances.
+
+change_from = 2
+change_to = 7
+columns = Column.objects.all().order_by("position")
+from_column = columns[change_from]
+to_column = columns[change_to]
+for seq, column in enumerate(columns[change_from:change_to]):
+    setattr(column, "position", column[seq + change_from].name)
+    column.save()
+setattr(to_column, "position", from_column.name)
+to_column.save()
+
+
+
+Soultion 2:
+
+Assuming changing the name values with respect to position. 
+
+change_from = 2
+change_to = 7
+columns = Column.objects.all().order_by("position")
+from_column = columns[change_from]
+to_column = columns[change_to]
+for seq, column in enumerate(columns[change_from:change_to]):
+    setattr(column, "name", column[seq + change_from].name)
+    column.save()
+setattr(to_column, "name", from_column.name)
+to_column.save()
